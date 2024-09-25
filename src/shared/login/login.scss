@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;700&family=Montserrat:wght@400;700&display=swap");
+
+html,
+body {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    45deg,
+    #ffffff 0%,
+
+    #97a97c 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s infinite alternate-reverse;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  max-width: 400px;
+  width: 150%;
+  padding-top: 50%;
+}
+
+.logo {
+  margin-bottom: 20px; /* Space between logo and input fields */
+  width: 100px; /* Adjust the size of the logo */
+  height: auto;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.56);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
