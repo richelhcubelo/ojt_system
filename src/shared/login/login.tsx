@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./login.scss";
 import PrimaryButton from "../components/buttons/primero-button";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLock,
@@ -11,6 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import InputField from "../components/fields/inputfield";
+
+// Import the logo image
+import logo from "../assets/ojt.png"; // Adjust the path based on your project structure
 
 const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({
@@ -84,6 +86,8 @@ const LoginForm: React.FC = () => {
   return (
     <div className="login-form-container">
       <div className="container">
+        {/* Logo added here */}
+        <img src={logo} alt="Logo" className="logo" />
         <div className="input-container">
           <div className="input-field">
             <label htmlFor="username">Username</label>
@@ -101,13 +105,13 @@ const LoginForm: React.FC = () => {
           <div className="input-field">
             <label htmlFor="password">Password</label>
             <InputField
-              type={showPassword ? "text" : "password"} // Corrected here
+              type={showPassword ? "text" : "password"}
               placeholder=""
               value={loginData.password}
               name="password"
               onChange={handleChange}
               icon={faLock}
-              toggleIcon={showPassword ? faEye : faEyeSlash} // Corrected here
+              toggleIcon={showPassword ? faEye : faEyeSlash}
               onTogglePassword={togglePasswordVisibility}
               error={errors.password}
             />

@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
-  position: relative; // Fix the sidebar to the left
+  position: relative;
   transition: width 0.3s ease; // Smooth transition for resizing
 }
 
@@ -45,6 +45,7 @@
   flex-grow: 1;
   margin-top: 15px;
   border: none;
+  outline: none;
 }
 
 .sidebar-item {

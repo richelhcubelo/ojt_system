@@ -1,26 +1,21 @@
 import React, { useState } from "react";
-import "./admin-sidebar.scss";
+import "./coordinator-sidebar.scss";
 import {
   FaHome,
+  FaUserCheck,
   FaUsers,
-  FaBriefcase,
-  FaUserTie,
-  FaUserGraduate,
+  FaBuilding,
+  FaFileAlt,
+  FaBullhorn,
 } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronRight,
-  faChevronDown,
-  faSignOutAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import PrimaryButton from "../buttons/primero-button";
 import Modal from "../modals/modal";
 import { useNavigate } from "react-router-dom";
+
+// Import the logo image
 import logo from "../../assets/ojt.png";
-interface SidebarProps {
-  activeItem: string;
-  onItemClick: (item: string) => void;
-}
 interface SidebarProps {
   activeItem: string;
   onItemClick: (item: string) => void;
@@ -28,7 +23,6 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const [userManagementOpen, setUserManagementOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -44,68 +38,62 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
     navigate("/");
   };
 
-  const handleUserManagementClick = () => {
-    setUserManagementOpen(!userManagementOpen); // Toggle open state
-  };
-
   return (
     <div className="sidebar">
       <div className="business-name-container">
-        {/*logo diri */}
+        {/* Logo added here */}
         <img src={logo} alt="Logo" className="sidebar-logo" />
       </div>
       <div className="sidebar-items-container">
         <button
           className={`sidebar-item ${
-            activeItem === "overview" ? "active" : ""
+            activeItem === "coordinator-dashboard" ? "active" : ""
           }`}
-          onClick={() => onItemClick("overview")}
+          onClick={() => onItemClick("coordinator-dashboard")}
         >
           <FaHome className="sidebar-icon" />
           Dashboard
         </button>
         <button
-          className={`sidebar-item ${userManagementOpen ? "active" : ""}`}
-          onClick={handleUserManagementClick}
+          className={`sidebar-item ${
+            activeItem === "attendance" ? "active" : ""
+          }`}
+          onClick={() => onItemClick("attendance")}
+        >
+          <FaUserCheck className="sidebar-icon" />
+          Attendance
+        </button>
+        <button
+          className={`sidebar-item ${
+            activeItem === "coordinator-students" ? "active" : ""
+          }`}
+          onClick={() => onItemClick("coordinator-students")}
         >
           <FaUsers className="sidebar-icon" />
-          User Management
-          <FontAwesomeIcon
-            icon={userManagementOpen ? faChevronDown : faChevronRight}
-            className="chevron-icon"
-          />
+          Student
         </button>
-
-        {/* Sub-menu for User Management */}
-        {userManagementOpen && (
-          <div className="sub-menu">
-            <button
-              className={`sidebar-item ${
-                activeItem === "coordinator" ? "active" : ""
-              }`}
-              onClick={() => onItemClick("coordinator")}
-            >
-              <FaUserTie className="sidebar-icon" />
-              Coordinator
-            </button>
-            <button
-              className={`sidebar-item ${
-                activeItem === "students" ? "active" : ""
-              }`}
-              onClick={() => onItemClick("students")}
-            >
-              <FaUserGraduate className="sidebar-icon" />
-              Students
-            </button>
-          </div>
-        )}
-
         <button
-          className={`sidebar-item ${activeItem === "program" ? "active" : ""}`}
-          onClick={() => onItemClick("program")}
+          className={`sidebar-item ${activeItem === "company" ? "active" : ""}`}
+          onClick={() => onItemClick("company")}
         >
-          <FaBriefcase className="sidebar-icon" />
-          Program
+          <FaBuilding className="sidebar-icon" />
+          Company
+        </button>
+        <button
+          className={`sidebar-item ${activeItem === "report" ? "active" : ""}`}
+          onClick={() => onItemClick("report")}
+        >
+          <FaFileAlt className="sidebar-icon" />
+          Report
+        </button>
+        <button
+          className={`sidebar-item ${
+            activeItem === "announcement" ? "active" : ""
+          }`}
+          onClick={() => onItemClick("announcement")}
+        >
+          <FaBullhorn className="sidebar-icon" />
+          Announcement
         </button>
       </div>
       <div className="logout-button-container">

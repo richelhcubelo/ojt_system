@@ -1,8 +1,16 @@
 import React from "react";
 import "./data-table.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Ensure you import FontAwesomeIcon
+import { faEdit } from "@fortawesome/free-solid-svg-icons"; // Ensure you import the edit icon
+
+interface Column {
+  header: string | React.ReactNode; // Allow header to be a string or React node
+  key: string;
+  render?: (row: any) => React.ReactNode; // Allow custom render function
+}
 
 interface DataTableProps {
-  columns: { header: string; key: string }[];
+  columns: Column[];
   data: any[];
   loading?: boolean;
   actions?: (row: any) => React.ReactNode;
@@ -15,9 +23,14 @@ const DataTable: React.FC<DataTableProps> = ({ columns, data, actions }) => {
         <thead>
           <tr>
             {columns.map((col) => (
-              <th key={col.key}>{col.header}</th>
+              <th key={col.key} className="centered">
+                {" "}
+                {/* Center all headers */}
+                {col.header}
+              </th>
             ))}
-            {actions && <th>Actions</th>}
+            {actions && <th className="centered">Actions</th>}{" "}
+            {/* Center actions header */}
           </tr>
         </thead>
         <tbody>
@@ -29,13 +42,26 @@ const DataTable: React.FC<DataTableProps> = ({ columns, data, actions }) => {
                   className={
                     col.key === "status"
                       ? `status ${row[col.key]?.toLowerCase()}`
+                      : col.key === "studentInfo"
+                      ? "student-info" // Apply student-info class for left alignment
                       : ""
                   }
                 >
-                  {row[col.key]}
+                  {col.render ? col.render(row) : row[col.key]}{" "}
+                  {/* Use render function if available */}
                 </td>
               ))}
-              {actions && <td>{actions(row)}</td>}
+              {actions && (
+                <td className="action-icons">
+                  {" "}
+                  {/* Center align icons in Action column */}
+                  <FontAwesomeIcon
+                    icon={faEdit}
+                    onClick={() => actions(row)} // Call action for edit
+                    className="edit-icon" // Optional: Add a class for styling
+                  />
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
