@@ -77,11 +77,6 @@ const Program: React.FC = () => {
             className="edit-icon"
             onClick={() => handleEdit(row.id)}
           />
-          <FontAwesomeIcon
-            icon={faTrash}
-            className="delete-icon"
-            onClick={() => handleDelete(row.id)}
-          />
         </div>
       ),
     },

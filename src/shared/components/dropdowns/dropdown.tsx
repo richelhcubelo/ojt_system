@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import "./dropdown.scss";
@@ -9,6 +9,8 @@ interface DropdownProps {
   value?: string;
   onChange: (selectedOption: string) => void;
   disabled?: boolean;
+  className?: string;
+  style?: CSSProperties; // Add this line
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -17,6 +19,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   value,
   onChange,
   disabled,
+  className,
+  style, // Add this line
 }) => {
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = e.target.value;
@@ -24,7 +28,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <div className="dropdown-container">
+    <div className={`dropdown-container ${className || ""}`} style={style}>
+      {" "}
       {label && <label className="dropdown-label">{label}</label>}
       <div className="dropdown-select">
         <select value={value} onChange={handleSelectChange} disabled={disabled}>

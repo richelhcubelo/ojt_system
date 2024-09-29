@@ -40,6 +40,18 @@
   height: 400px;
   /* Adjust dimensions for medium modal */
 }
+.modal-content.medium2 {
+  max-width: 100%;
+  width: 400px;
+  height: 520px;
+  /* Adjust dimensions for medium modal */
+}
+
+.modal-content.extralarge {
+  max-width: 100%;
+  width: 750px;
+  height: 600px; /* Adjust max-width for large modal */
+}
 
 .modal-content-inner {
   display: flex;

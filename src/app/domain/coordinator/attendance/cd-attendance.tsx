@@ -48,9 +48,15 @@ const Attendance: React.FC = () => {
       key: "studentInfo",
       render: (row: any) => (
         <div className="student-info">
-          <p data-label="Name:">{row.studentInfo.name || "N/A"}</p>
-          <p data-label="Address:">{row.studentInfo.address || "N/A"}</p>
-          <p data-label="Contact #:">{row.studentInfo.contactNo || "N/A"}</p>
+          <p>
+            <strong>Name:</strong> {row.studentInfo.name || "N/A"}
+          </p>
+          <p>
+            <strong>Address:</strong> {row.studentInfo.address || "N/A"}
+          </p>
+          <p>
+            <strong>Contact #:</strong> {row.studentInfo.contactNo || "N/A"}
+          </p>
         </div>
       ),
     },
@@ -75,7 +81,7 @@ const Attendance: React.FC = () => {
         </div>
       </div>
 
-      {/* Render the DataTable without the Action column */}
+      {/* Render the DataTable */}
       <DataTable columns={columns} data={attendanceData} />
     </div>
   );

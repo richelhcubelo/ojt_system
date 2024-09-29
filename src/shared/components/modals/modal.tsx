@@ -7,7 +7,7 @@ interface ModalProps {
   message: string;
   onCancel: () => void;
   onConfirm?: () => void;
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "medium2" | "large" | "extralarge";
   singleButton?: boolean;
   cancelButtonText?: string;
   confirmButtonText?: string;

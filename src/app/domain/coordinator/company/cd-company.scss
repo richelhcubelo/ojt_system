@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+
+.dashboard-page {
+  margin: 0;
+  padding: 0;
+  padding-top: -0.1;
+  overflow: hidden;
+
+  .page-title {
+    font-size: 1.6em;
+    color: rgba(0, 0, 0, 0.56);
+    margin: 0;
+    padding-left: 1.8em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+  }
+
+  .page-subtitle {
+    font-size: 1em;
+    color: rgba(0, 0, 0, 0.56);
+    margin: 0;
+    padding-left: 1.8em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    margin-left: 1.3em;
+  }
+
+  .search-bar-container {
+    padding: 1em 1.6em;
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+.mentor-info {
+  display: flex;
+  flex-direction: column; // Ensure content is displayed vertically
+
+  p {
+    margin: 0; // Remove default margins
+    line-height: 1.4; // Adjust spacing between lines
+    font-size: 14px; // Optional: Adjust font size if necessary
+    padding: 5px 0; // Add padding for space between text items
+
+    // Styles for the label part (Name:, Address:, etc.)
+    &::before {
+      content: attr(data-label); // Use the data-label attribute as a prefix
+      font-weight: bold;
+      margin-right: 5px; // Add space between label and actual data
+      display: inline-block;
+      width: 100px; // Adjust width based on label length
+    }
+  }
+}
+
+.action-icons {
+  display: flex; // Use flexbox for centering
+  justify-content: center; // Center content horizontally
+  display: flex;
+  gap: 10px; // Space between the icons
+
+  .edit-icon,
+  .delete-icon {
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+
+    &:hover {
+      color: #007bff;
+    }
+  }
+}

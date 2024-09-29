@@ -60,14 +60,6 @@ const Student: React.FC = () => {
             onSearch={(query) => console.log("Search query:", query)}
           />
         </div>
-        <div className="program-dropdown-container">
-          <Dropdown
-            label="Program"
-            options={["BSCS", "BSIT", "BSF", "BEEd"]}
-            value={program}
-            onChange={handleProgramChange}
-          />
-        </div>
       </div>
 
       {/* Render the DataTable below the controls */}

@@ -1,0 +1,22 @@
+.internship-report-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .search-wrapper {
+    width: 100%;
+    max-width: 300px; // Adjust this value as needed
+  }
+
+  .time-info {
+    color: rgb(109, 102, 102);
+    align-self: flex-start; // Aligns the time-info to the left
+    margin-top: 6em;
+    margin-left: 3.8em;
+    font-family: "Montserrat", sans-serif; // Added Montserrat font
+    p {
+      margin: 10px 0;
+      text-align: left; // Ensures text within paragraphs is left-aligned
+    }
+  }
+}

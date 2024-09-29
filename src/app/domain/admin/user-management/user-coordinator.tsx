@@ -162,14 +162,7 @@ const Coordinator: React.FC = () => {
             onSearch={(query) => console.log("Search query:", query)} // Add your search handler here
           />
         </div>
-        <div className="dropdown-container">
-          <Dropdown
-            label="Status"
-            options={["Active", "Inactive"]}
-            value={status}
-            onChange={handleStatusChange}
-          />
-        </div>
+
         <div className="add-button-container">
           <PrimaryButton
             buttonText="Add Coordinator"

@@ -10,6 +10,9 @@ import CDashboard from "../../domain/coordinator/dashboard/coordinator-1dashb";
 import CoordinatorDashboard from "../../domain/coordinator/dashboard/coordinator-dashboard";
 import Attendance from "../../domain/coordinator/attendance/cd-attendance";
 import CoordinatorStudent from "../../domain/coordinator/students/cd-student";
+import CoordinatorCompany from "../../domain/coordinator/company/cd-company";
+import CoordinatorReport from "../../domain/coordinator/report/cd-report";
+import CoordinatorAnnouncement from "../../domain/coordinator/announcement/cd-announcement";
 
 export function AppRoute() {
   const [activeItem, setActiveItem] = useState<string>("dashboard");
@@ -60,6 +63,18 @@ export function AppRoute() {
         {
           path: "coordinator-students",
           element: <CoordinatorStudent />,
+        },
+        {
+          path: "company",
+          element: <CoordinatorCompany />,
+        },
+        {
+          path: "report",
+          element: <CoordinatorReport />,
+        },
+        {
+          path: "announcement",
+          element: <CoordinatorAnnouncement />,
         },
       ],
     },

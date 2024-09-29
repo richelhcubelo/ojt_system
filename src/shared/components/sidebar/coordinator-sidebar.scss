@@ -32,11 +32,19 @@
   .sidebar-item {
     font-size: 0.875em; // Slightly smaller font size
     color: rgba(0, 0, 0, 0.7); // Lighter color for submenu items
+
+    &:hover {
+      background-color: #abc090;
+    }
+    &:active {
+      background-color: #abc090; // Active state for submenu items
+      color: rgb(0, 0, 0);
+    }
   }
 }
 .business-name-container {
-  margin-top: 1em;
-  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
 
   .sidebar-logo {
     width: auto; /* Adjust width as needed */
