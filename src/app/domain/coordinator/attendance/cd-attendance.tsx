@@ -8,30 +8,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Attendance: React.FC = () => {
   const [attendanceData, setAttendanceData] = useState([
     {
-      id: 1,
-      date: "2024-09-01",
-      studentInfo: {
-        name: "John Doe",
-        address: "123 Main St, City",
-        contactNo: "123-456-7890",
-      },
+      id: 1, // Added ID
+      date: "186744",
+      name: "Richel H. Cubelo",
       company: "Tech Corp",
-      time: "09:00 AM",
+      time: {
+        inTime: "09:00 AM", // Added inTime
+        outTime: "01:00 PM", // Added outTime
+      },
       duration: "4 hours",
       remarks: "Present",
+      location: "Calape, Bohol", // Location field
     },
     {
-      id: 2,
+      id: 2, // Added ID
       date: "2024-09-01",
-      studentInfo: {
-        name: "Jane Smith",
-        address: "456 Elm St, Town",
-        contactNo: "987-654-3210",
-      },
+      name: "Jane Smith",
       company: "Innovate Solutions",
-      time: "10:00 AM",
+      time: {
+        inTime: "09:00 AM", // Added inTime
+        outTime: "01:00 PM", // Added outTime
+      },
       duration: "3.5 hours",
       remarks: "Late",
+      location: "Town Center, Town", // Example location
     },
   ]);
 
@@ -39,29 +39,43 @@ const Attendance: React.FC = () => {
     console.log("Edit attendance record with ID:", id);
   };
 
-  // Table columns without the Action column
+  // Table columns with Location next to Name
   const columns = [
-    { header: "#", key: "id" },
+    { header: "#", key: "id" }, // ID column added
     { header: "Date", key: "date" },
     {
-      header: "Student Info",
-      key: "studentInfo",
+      header: "Name", // Name column
+      key: "studentName",
       render: (row: any) => (
-        <div className="student-info">
+        <div className="student-name">
+          <p>{row.name || "N/A"}</p> {/* Show Name directly */}
+        </div>
+      ),
+    },
+    {
+      header: "Location", // Location column next to Name
+      key: "location",
+      render: (row: any) => (
+        <div className="student-location">
+          <p>{row.location || "N/A"}</p> {/* Show Location */}
+        </div>
+      ),
+    },
+    {
+      header: "Time", // Time column
+      key: "time",
+      render: (row: any) => (
+        <div className="student-time">
           <p>
-            <strong>Name:</strong> {row.studentInfo.name || "N/A"}
+            <strong>In:</strong> {row.time.inTime || "N/A"}
           </p>
           <p>
-            <strong>Address:</strong> {row.studentInfo.address || "N/A"}
-          </p>
-          <p>
-            <strong>Contact #:</strong> {row.studentInfo.contactNo || "N/A"}
+            <strong>Out:</strong> {row.time.outTime || "N/A"}
           </p>
         </div>
       ),
     },
     { header: "Company", key: "company" },
-    { header: "Time", key: "time" },
     { header: "Duration", key: "duration" },
     { header: "Remarks", key: "remarks" },
   ];

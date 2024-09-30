@@ -19,26 +19,30 @@ const CoordinatorStudent: React.FC = () => {
   const [studentData, setStudentData] = useState([
     {
       id: 1,
-      studentId: "2023-001",
+      studentId: "186744",
       studentInfo: {
         name: "Richel Hetutuane Cubelo",
-        address: "123 Main St, City",
+        address: "Bentig, Calape, Bohol",
         contactNo: "123-456-7890",
-        sex: "Male",
+        sex: "Female",
       },
-      program: "BS Computer Science",
+      status: "Active",
+      company: "Marvs Digital",
+      program: "BSCS",
       schoolYear: "2023-2024",
     },
     {
       id: 2,
-      studentId: "2023-002",
+      studentId: "186745",
       studentInfo: {
         name: "Ryan Postanes Amasora",
-        address: "456 Elm St, Town",
+        address: "Desamparados, Calape, Bohol",
         contactNo: "987-654-3210",
-        sex: "Female",
+        sex: "Bayot",
       },
-      program: "BS Information Technology",
+      status: "Inactive",
+      company: "DataSoft Solutions",
+      program: "BSIT",
       schoolYear: "2023-2024",
     },
   ]);
@@ -135,8 +139,8 @@ const CoordinatorStudent: React.FC = () => {
     setContact("");
     setSex("");
     setStudentId("");
-    setProgram("BSCS");
-    setSchoolYear("2023-2024");
+    setProgram("");
+    setSchoolYear("");
     setCompany("");
     setStatus("");
     setEmail("");
@@ -166,6 +170,11 @@ const CoordinatorStudent: React.FC = () => {
         </div>
       ),
     },
+    {
+      header: "Status",
+      key: "status",
+    },
+    { header: "Company", key: "company" },
     { header: "Program", key: "program" },
     { header: "S.Y.", key: "schoolYear" },
     {

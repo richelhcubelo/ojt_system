@@ -8,24 +8,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../../../../shared/components/modals/modal";
 import NameInputField from "../../../../shared/components/fields/unif";
 
+const handleEdit = (id: number) => {
+  // Implement your edit logic here
+};
+
 const Program: React.FC = () => {
   const [programs, setPrograms] = useState([
     {
       id: 1,
-      program: "BS Computer Science",
+      program: "BSCS",
       description: "Bachelor of Science in Computer Science",
+      requiredDuration: "320 hrs",
     },
     {
       id: 2,
       program: "BS Information Technology",
       description: "Bachelor of Science in Information Technology",
+      requiredDuration: "350 hrs",
     },
-    { id: 3, program: "BEEd", description: "Bachelor of Elementary Education" },
+    {
+      id: 3,
+      program: "BEEd",
+      description: "Bachelor of Elementary Education",
+      requiredDuration: "40 days",
+    },
   ]);
 
   const [showModal, setShowModal] = useState(false);
   const [program, setProgram] = useState("");
   const [description, setDescription] = useState("");
+  const [requiredDuration, setRequiredDuration] = useState(""); // New state for required duration
 
   const handleAddButtonClick = () => {
     setShowModal(true);
@@ -39,6 +51,9 @@ const Program: React.FC = () => {
       setProgram(e.target.value);
     } else if (field === "description") {
       setDescription(e.target.value);
+    } else if (field === "requiredDuration") {
+      // Handle required duration input
+      setRequiredDuration(e.target.value);
     }
   };
 
@@ -46,20 +61,18 @@ const Program: React.FC = () => {
     setShowModal(false);
     setProgram("");
     setDescription("");
+    setRequiredDuration(""); // Reset required duration
   };
 
   const handleModalSave = () => {
-    const newProgram = { id: programs.length + 1, program, description };
+    const newProgram = {
+      id: programs.length + 1,
+      program,
+      description,
+      requiredDuration, // Use the new state value
+    };
     setPrograms([...programs, newProgram]);
     handleModalCancel();
-  };
-
-  const handleEdit = (id: number) => {
-    console.log("Edit program with ID:", id);
-  };
-
-  const handleDelete = (id: number) => {
-    console.log("Delete program with ID:", id);
   };
 
   // Table columns
@@ -67,6 +80,7 @@ const Program: React.FC = () => {
     { header: "ID", key: "id" },
     { header: "Program", key: "program" },
     { header: "Description", key: "description" },
+    { header: "Required Duration", key: "requiredDuration" },
     {
       header: "Action",
       key: "action",
@@ -134,13 +148,23 @@ const Program: React.FC = () => {
               value={program}
               onChange={(e) => handleInputChange(e, "program")}
             />
-
-            <label htmlFor="description">Description</label>
+            <div className="description-modal">
+              <label htmlFor="description">Description</label>
+            </div>
             <NameInputField
               type="text"
               id="description"
               value={description}
               onChange={(e) => handleInputChange(e, "description")}
+            />
+
+            {/* New Required Duration Input Field */}
+            <label htmlFor="requiredDuration">Duration</label>
+            <NameInputField
+              type="text"
+              id="requiredDuration"
+              value={requiredDuration}
+              onChange={(e) => handleInputChange(e, "requiredDuration")}
             />
           </div>
         </div>

@@ -73,6 +73,26 @@
   }
 }
 
+.student-info {
+  display: flex;
+  flex-direction: column; // Ensure content is displayed vertically
+
+  p {
+    margin: 0; // Remove default margins
+    line-height: 1.4; // Adjust spacing between lines
+    font-size: 14px; // Optional: Adjust font size if necessary
+    padding: 5px 0; // Add padding for space between text items
+
+    // Styles for the label part (Name:, Address:, etc.)
+    &::before {
+      content: attr(data-label); // Use the data-label attribute as a prefix
+      font-weight: bold;
+      margin-right: 5px; // Add space between label and actual data
+
+      width: 100px; // Adjust width based on label length
+    }
+  }
+}
 /*---------------------------------------------------*/
 
 .modal-custom-header-student {

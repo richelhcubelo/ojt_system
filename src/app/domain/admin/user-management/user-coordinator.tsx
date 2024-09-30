@@ -9,6 +9,7 @@ import DataTable from "../../../../shared/components/table/data-table";
 import Modal from "../../../../shared/components/modals/modal";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import NameInputField from "../../../../shared/components/fields/unif";
+import { FaEdit } from "react-icons/fa"; // Add this import
 
 const Coordinator: React.FC = () => {
   const [status, setStatus] = useState<string>("");
@@ -116,7 +117,22 @@ const Coordinator: React.FC = () => {
     { header: "Last Name", key: "lastName" },
     { header: "Contact Number", key: "contact" }, // Updated header for clarity
     { header: "Email", key: "email" }, // Replaced Status with Email
+    {
+      header: "Action",
+      key: "action",
+      render: (row: any) => (
+        <button onClick={() => handleEdit(row.id)} className="edit-button">
+          <FaEdit />
+        </button>
+      ),
+    },
   ];
+
+  // Add this function to handle edit action
+  const handleEdit = (id: number) => {
+    console.log(`Edit coordinator with id: ${id}`);
+    // Implement edit logic here
+  };
 
   // Sample data for the DataTable
   const data = [

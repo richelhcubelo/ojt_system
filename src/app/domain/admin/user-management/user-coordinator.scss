@@ -311,3 +311,16 @@
     padding: 8px; // Adjust padding for smaller screens
   }
 }
+
+.edit-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007bff; // or any color you prefer
+  font-size: 1.2em;
+  padding: 5px;
+
+  &:hover {
+    color: #0056b3; // darker shade for hover effect
+  }
+}

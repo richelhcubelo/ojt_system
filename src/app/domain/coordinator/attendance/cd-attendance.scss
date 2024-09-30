@@ -30,6 +30,26 @@
   }
 }
 
+.student-time {
+  display: flex;
+  flex-direction: column; // Ensure content is displayed vertically
+
+  p {
+    margin: 0; // Remove default margins
+    line-height: 1.4; // Adjust spacing between lines
+    font-size: 14px; // Optional: Adjust font size if necessary
+    padding: 5px 0; // Add padding for space between text items
+
+    // Styles for the label part (Name:, Address:, etc.)
+    &::before {
+      content: attr(data-label); // Use the data-label attribute as a prefix
+      font-weight: bold;
+      margin-right: 5px; // Add space between label and actual data
+      width: 100px; // Adjust width based on label length
+    }
+  }
+}
+
 .data-table {
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -56,12 +76,12 @@
 
     th,
     td {
-      padding: 12px; /* Adjust padding for desktop/tablet */
       text-align: center; /* Center align all cells by default */
       border-bottom: 1px solid #ddd;
     }
 
     th {
+      padding: 8px;
       background-color: #e5e6d5;
       color: #626161;
       font-family: "Montserrat", sans-serif;
@@ -73,17 +93,10 @@
       font-family: "Montserrat", sans-serif;
       font-size: 14px; /* Increase font size for better readability */
       color: rgba(0, 0, 0, 0.9);
+      padding: 5px;
+      margin: 0;
 
       // Specific styles for student info to ensure left alignment
-      &.student-info {
-        text-align: left; // Ensure student info is left-aligned
-        display: flex; // Use flexbox to keep items in one line
-        align-items: center; // Align items vertically centered
-
-        span {
-          margin-right: 10px; // Space between elements
-        }
-      }
 
       &.action-icons {
         display: flex; // Use flexbox for centering

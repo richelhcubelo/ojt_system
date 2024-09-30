@@ -37,16 +37,7 @@ const DataTable: React.FC<DataTableProps> = ({ columns, data, actions }) => {
           {data.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((col) => (
-                <td
-                  key={col.key}
-                  className={
-                    col.key === "status"
-                      ? `status ${row[col.key]?.toLowerCase()}`
-                      : col.key === "studentInfo"
-                      ? "student-info" // Apply student-info class for left alignment
-                      : ""
-                  }
-                >
+                <td key={col.key}>
                   {col.render ? col.render(row) : row[col.key]}{" "}
                   {/* Use render function if available */}
                 </td>
