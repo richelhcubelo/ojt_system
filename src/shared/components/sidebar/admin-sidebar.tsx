@@ -16,7 +16,7 @@ import {
 import PrimaryButton from "../buttons/primero-button";
 import Modal from "../modals/modal";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/ojt.png";
+import logo from "../../assets/logosya.png";
 interface SidebarProps {
   activeItem: string;
   onItemClick: (item: string) => void;
@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeItem, onItemClick }) => {
   };
 
   return (
-    <div className="sidebar">
+    <div className="admin-sidebar">
       <div className="business-name-container">
         {/*logo diri */}
         <img src={logo} alt="Logo" className="sidebar-logo" />

@@ -21,7 +21,8 @@
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
     margin-right: 1em;
-    background-color: transparent;
+    background-color: white;
+    color: black;
 
     &:focus {
       border-color: #b0b0b0;
@@ -31,7 +32,7 @@
   }
 
   &:hover input {
-    border-color: #b7b4b4;
+    border-color: #615f5f;
     box-shadow: 0 0 5px rgba(176, 176, 176, 0.5);
   }
 

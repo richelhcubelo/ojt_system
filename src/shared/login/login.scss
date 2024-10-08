@@ -3,16 +3,15 @@
 html,
 body {
   width: 100%;
-  height: 100vh; // Full viewport height
-  margin: 0; // No margin
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* No margin */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #e9f5db 0%, #b5c99a 50%, #97a97c 100%);
-  background-size: 400% 400%;
-  animation: gradientAnimation 15s infinite alternate-reverse;
-}
 
+  /* Static background color with a linear gradient */
+  background: linear-gradient(90deg, #11ffb7, #11f2e8, #17c9ef);
+}
 @keyframes gradientAnimation {
   0% {
     background-position: 0% 50%;

@@ -6,11 +6,14 @@ interface NameInputFieldProps {
   type: string;
   id: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   readOnly?: boolean;
   showPassword?: boolean;
   onTogglePassword?: () => void;
   label?: string;
+  rows?: number;
 }
 
 const NameInputField: React.FC<NameInputFieldProps> = ({
@@ -18,10 +21,11 @@ const NameInputField: React.FC<NameInputFieldProps> = ({
   id,
   value,
   onChange,
-  readOnly,
+  readOnly = false,
   showPassword = false,
   onTogglePassword,
   label,
+  rows = 3,
 }) => {
   return (
     <div className="name-input-field">
@@ -30,13 +34,23 @@ const NameInputField: React.FC<NameInputFieldProps> = ({
           {label}
         </label>
       )}
-      <input
-        type={showPassword ? "text" : type}
-        id={id}
-        value={value}
-        onChange={onChange}
-        readOnly={readOnly}
-      />
+      {type === "textarea" ? (
+        <textarea
+          id={id}
+          value={value}
+          onChange={onChange}
+          readOnly={readOnly}
+          rows={rows}
+        />
+      ) : (
+        <input
+          type={showPassword ? "text" : type}
+          id={id}
+          value={value}
+          onChange={onChange}
+          readOnly={readOnly}
+        />
+      )}
       {type === "password" && onTogglePassword && (
         <div className="password-toggle" onClick={onTogglePassword}>
           {showPassword ? <FaEyeSlash /> : <FaEye />}

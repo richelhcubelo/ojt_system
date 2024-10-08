@@ -10,65 +10,42 @@
     font-size: 1.6em;
     color: rgba(0, 0, 0, 0.56);
     margin: 0;
-    padding-left: 1.8em;
+    padding-left: 1em;
     font-family: "Montserrat", sans-serif;
-    font-weight: normal;
+    font-weight: bold;
   }
 
   .page-subtitle {
     font-size: 1em;
     color: rgba(0, 0, 0, 0.56);
     margin: 0;
-    padding-left: 1.8em;
+    padding-left: 0.39em;
     font-family: "Montserrat", sans-serif;
     font-weight: normal;
     margin-left: 1.3em;
   }
 
   .search-bar-container {
-    padding: 1em 1.6em;
+    padding: 1em 1.9em;
     font-family: "Montserrat", sans-serif;
-  }
-}
 
-.mentor-info {
-  display: flex;
-  flex-direction: column; // Ensure content is displayed vertically
+    input {
+      width: 100%;
+      padding: 1em 2em;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      margin-right: 1em;
+      background-color: transparentf;
+      font-family: "Montserrat", sans-serif;
 
-  p {
-    margin: 0; // Remove default margins
-    line-height: 1.4; // Adjust spacing between lines
-    font-size: 14px; // Optional: Adjust font size if necessary
-    padding: 5px 0; // Add padding for space between text items
-
-    // Styles for the label part (Name:, Address:, etc.)
-    &::before {
-      content: attr(data-label); // Use the data-label attribute as a prefix
-      font-weight: bold;
-      margin-right: 5px; // Add space between label and actual data
-
-      width: 100px; // Adjust width based on label length
-    }
-  }
-}
-
-.company-info {
-  display: flex;
-  flex-direction: column; // Ensure content is displayed vertically
-
-  p {
-    margin: 0; // Remove default margins
-    line-height: 1.4; // Adjust spacing between lines
-    font-size: 14px; // Optional: Adjust font size if necessary
-    padding: 5px 0; // Add padding for space between text items
-
-    // Styles for the label part (Name:, Address:, etc.)
-    &::before {
-      content: attr(data-label); // Use the data-label attribute as a prefix
-      font-weight: bold;
-
-      margin-right: 5px; // Add space between label and actual data
-      width: 100px; // Adjust width based on label length
+      &:focus {
+        border-color: #b0b0b0;
+        box-shadow: 0 0 5px rgba(176, 176, 176, 0.5);
+        color: black;
+      }
     }
   }
 }
@@ -137,6 +114,7 @@
   justify-content: space-between;
   padding: 0px;
   margin-top: 0px;
+  font-family: "Montserrat", sans-serif;
 }
 
 .modal-bodyleft {
@@ -147,6 +125,7 @@
   margin: 12px;
   color: #333;
   margin-left: 2em;
+  font-family: "Montserrat", sans-serif;
 
   h4 {
     color: #767677;
@@ -168,6 +147,7 @@
     margin-bottom: 20px;
     margin-right: 2em;
     width: 300px; // Increased width
+    font-family: "Montserrat", sans-serif;
 
     label {
       display: block;

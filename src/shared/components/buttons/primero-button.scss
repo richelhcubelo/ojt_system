@@ -6,17 +6,16 @@
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #718355;
+  background-color: #0b6477;
   color: white;
   cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
   font-family: "Montserrat", sans-serif;
   font-weight: 100;
   font-size: 17px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background: linear-gradient(to bottom, #718355 20%, #718355 82%);
+    background: linear-gradient(to bottom, #0b4f5d 20%, #0b4f5d 82%);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 

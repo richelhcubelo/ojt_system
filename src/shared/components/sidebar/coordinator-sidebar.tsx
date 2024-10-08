@@ -15,7 +15,7 @@ import Modal from "../modals/modal";
 import { useNavigate } from "react-router-dom";
 
 // Import the logo image
-import logo from "../../assets/ojt.png";
+import logo from "../../assets/logosya.png";
 interface SidebarProps {
   activeItem: string;
   onItemClick: (item: string) => void;

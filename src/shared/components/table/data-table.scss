@@ -7,7 +7,7 @@
   background-color: #fff;
   width: 100%;
   max-width: 100%;
-  max-height: 500px; /* You can adjust this height as needed */
+  max-height: 300px; /* You can adjust this height as needed */
   margin: 0 auto;
   box-sizing: border-box;
   overflow-x: auto; /* Enable horizontal scrolling for small screens */
@@ -28,7 +28,7 @@
     td {
       padding: 4px 6px;
       text-align: center; /* Center align all cells by default */
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #69b4d2;
     }
 
     th {

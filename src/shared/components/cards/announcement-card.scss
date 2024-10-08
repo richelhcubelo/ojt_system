@@ -1,5 +1,5 @@
 .reminder-card {
-  background-color: #eaf3e7;
+  background: linear-gradient(45deg, #11ffb7, #11f2e8, #17c9ef);
   border-radius: 12px;
   padding: 20px;
   max-width: 260px;
@@ -7,17 +7,18 @@
   margin-top: 1.2em;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: "Montserrat", sans-serif;
-  margin-left: 3.2em;
+  margin-left: 3.8em;
 
   .card-title {
     font-size: 1.4em;
-    font-weight: 500;
+    font-weight: bold;
     color: #444;
     margin-bottom: 30px;
   }
 
   .card-content {
     font-size: 0.98em;
+    font-weight: 500;
     color: #555;
     margin-bottom: 20px;
     line-height: 1.6;
@@ -26,9 +27,22 @@
 
   .card-footer {
     font-size: 0.8em;
-    color: #6e6a6a;
+    color: #9989b7;
     text-align: right;
     font-weight: 600;
     margin-top: 3em;
   }
+}
+
+.announcement-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-right: 30em;
+  gap: 0px; /* Adjust this value to set the space between cards */
+}
+
+.announcement-cards-container > * {
+  flex: 1 1 calc(50% - 5px); /* This will make two cards per row on larger screens */
+  min-width: 250px; /* Adjust this value as needed */
 }

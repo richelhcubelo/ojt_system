@@ -45,6 +45,34 @@ const CoordinatorStudent: React.FC = () => {
       program: "BSIT",
       schoolYear: "2023-2024",
     },
+    {
+      id: 3,
+      studentId: "186746",
+      studentInfo: {
+        name: "Rica Cubelo",
+        address: "Bentig, Calape, Bohol",
+        contactNo: "989-111-0000",
+        sex: "Female",
+      },
+      status: "Inactive",
+      company: "DataSoft Solutions",
+      program: "BSIT",
+      schoolYear: "2023-2024",
+    },
+    {
+      id: 4,
+      studentId: "186747",
+      studentInfo: {
+        name: "Ronie Cubelo",
+        address: "Bentig, Calape, Bohol",
+        contactNo: "129-111-1910",
+        sex: "Male",
+      },
+      status: "Inactive",
+      company: "Skyride",
+      program: "BSEd",
+      schoolYear: "2024-2025",
+    },
   ]);
 
   const [showModal, setShowModal] = useState(false);

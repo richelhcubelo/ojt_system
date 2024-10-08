@@ -5,26 +5,29 @@
   overflow-y: hidden;
 }
 
-.sidebar {
-  width: 17em; // 260px
+.admin-sidebar {
+  width: 16em;
+  position: relative;
+  height: calc(100vh - 2em);
+  margin: 1.5em;
+  border-radius: 2em;
   background: linear-gradient(
     to bottom,
-    #e9f5db 10%,
-    #cfe1b9 34%,
-    #b5c99a 72%,
-    #97a97c 100%
+    #12828b 11%,
+    #0b9ca7 38%,
+    #12b3c0 62%,
+    #18c3d1 80%
   );
   padding: 1.125em;
-  height: 100vh; // Full height of the viewport
+  height: 89vh;
   display: flex;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
-  position: relative;
-  transition: width 0.3s ease; // Smooth transition for resizing
+  transition: width 0.3s ease;
 }
 
 .sub-menu {
-  margin-left: 2em; // Indent submenu items
+  margin-left: 2em;
 
   .sidebar-item {
     font-size: 0.875em; // Slightly smaller font size

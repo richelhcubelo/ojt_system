@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./cd-company.scss";
+
 import SearchBar from "../../../../shared/components/searchbar/searchbar"; // Adjust the path as needed
 import DataTable from "../../../../shared/components/table/data-table";
 import { faEdit, faPlus, faQrcode } from "@fortawesome/free-solid-svg-icons"; // Added faQrcode
@@ -7,47 +8,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PrimaryButton from "../../../../shared/components/buttons/primero-button";
 import Modal from "../../../../shared/components/modals/modal";
 import NameInputField from "../../../../shared/components/fields/unif";
-
-import SecondaryButton from "../../../../shared/components/buttons/secondary-button";
-import QRCode from "qrcode.react"; // Make sure to install this package
 import QRCodeComponent from "../../../../shared/components/qrcode/qr-code";
 
 const CoordinatorCompany: React.FC = () => {
-  const [companyData, setCompanyData] = useState([
-    {
-      id: 1,
-      companyInfo: {
-        name: "Tech Innovations Inc.",
-        address: "789 Tech Park, Silicon Valley",
-      },
-      mentorInfo: {
-        name: "Alice Johnson",
-        contactNo: "321-654-0987",
-      },
-    },
-    {
-      id: 2,
-      companyInfo: {
-        name: "Creative Solutions LLC",
-        address: "101 Creative Blvd, Art City",
-      },
-      mentorInfo: {
-        name: "Bob Smith",
-        contactNo: "654-321-9870",
-      },
-    },
+  const [companyData, setCompanyData] = useState<
+    Array<{
+      id: number;
+      companyName: string;
+      address: string;
+      mentorName: string;
+      contactNo: string;
+      qrCode: string | null;
+    }>
+  >([
+    //example data in table here
   ]);
 
   const [showModal, setShowModal] = useState(false);
   const [currentModal, setCurrentModal] = useState<string | null>(null);
-  const [formData, setFormData] = useState({});
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [contact, setContact] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [mentorName, setMentorName] = useState("");
+  const [formData, setFormData] = useState({
+    companyName: "",
+    address: "",
+    mentorName: "",
+    contact: "",
+  });
   const [qrCodeData, setQRCodeData] = useState<string | null>(null);
 
   const handleEdit = (id: number) => {
@@ -64,61 +48,40 @@ const CoordinatorCompany: React.FC = () => {
     field: string
   ) => {
     setFormData((prev) => ({ ...prev, [field]: e.target.value }));
-
-    switch (field) {
-      case "companyName":
-        setFirstName(e.target.value);
-        break;
-      case "address":
-        setLastName(e.target.value);
-        break;
-      case "mentorName":
-        setMentorName(e.target.value);
-        break;
-      case "contactNo":
-        setEmail(e.target.value);
-        break;
-      default:
-        break;
-    }
   };
 
   const columns = [
     { header: "#", key: "id" },
     {
-      header: "Company Info",
-      key: "companyInfo",
-      render: (row: any) => (
-        <div className="company-info">
-          <p>
-            <strong>Company Name:</strong> {row.companyInfo.name || "N/A"}
-          </p>
-          <p>
-            <strong>Address:</strong> {row.companyInfo.address || "N/A"}
-          </p>
-        </div>
-      ),
+      header: "Company Name",
+      key: "companyName",
+      render: (row: any) => row.companyName || "N/A",
     },
     {
-      header: "Mentor Info",
-      key: "mentorInfo",
-      render: (row: any) => (
-        <div className="mentor-info">
-          <p>
-            <strong>Mentor Name:</strong> {row.mentorInfo.name || "N/A"}
-          </p>
-          <p>
-            <strong>Contact #:</strong> {row.mentorInfo.contactNo || "N/A"}
-          </p>
-        </div>
-      ),
+      header: "Address",
+      key: "address",
+      render: (row: any) => row.address || "N/A",
+    },
+    {
+      header: "Mentor Name",
+      key: "mentorName",
+      render: (row: any) => row.mentorName || "N/A",
+    },
+    {
+      header: "Contact #",
+      key: "contactNo",
+      render: (row: any) => row.contactNo || "N/A",
     },
     {
       header: "QR Code",
       key: "qrCode",
-      render: () => (
+      render: (row: any) => (
         <div className="qr-code">
-          <FontAwesomeIcon icon={faQrcode} size="2x" />
+          {row.qrCode ? (
+            <QRCodeComponent value={row.qrCode} size={50} />
+          ) : (
+            "No QR Code"
+          )}
         </div>
       ),
     },
@@ -156,9 +119,37 @@ const CoordinatorCompany: React.FC = () => {
   };
 
   const handleRegisterQRCode = () => {
-    console.log("Registering QR code:", qrCodeData);
+    // Create a new company object
+    const newCompany = {
+      id: companyData.length + 1,
+      companyName: formData.companyName,
+      address: formData.address,
+      mentorName: formData.mentorName,
+      contactNo: formData.contact,
+      qrCode: qrCodeData,
+    };
+
+    // Add the new company to the companyData array
+    setCompanyData([...companyData, newCompany]);
+
+    // Reset the form data
+    setFormData({
+      companyName: "",
+      address: "",
+      mentorName: "",
+      contact: "",
+    });
+
+    // Close the modal and reset QR code data
     setShowModal(false);
     setQRCodeData(null);
+    setCurrentModal(null);
+  };
+
+  const companyPerPage = 10; // Adjust this number as needed
+  const pageCount = Math.ceil(companyPerPage);
+  const handlePageClick = ({ selected }: { selected: number }) => {
+    // Handle page change logic here using the 'selected' value
   };
 
   return (
@@ -210,7 +201,7 @@ const CoordinatorCompany: React.FC = () => {
               <NameInputField
                 type="text"
                 id="companyName"
-                value={companyName}
+                value={formData.companyName}
                 onChange={(e) => handleInputChange(e, "companyName")}
               />
 
@@ -218,7 +209,7 @@ const CoordinatorCompany: React.FC = () => {
               <NameInputField
                 type="text"
                 id="address"
-                value={address}
+                value={formData.address}
                 onChange={(e) => handleInputChange(e, "address")}
               />
             </div>
@@ -230,7 +221,7 @@ const CoordinatorCompany: React.FC = () => {
                 <NameInputField
                   type="text"
                   id="mentorName"
-                  value={mentorName}
+                  value={formData.mentorName}
                   onChange={(e) => handleInputChange(e, "mentorName")}
                 />
 
@@ -238,7 +229,7 @@ const CoordinatorCompany: React.FC = () => {
                 <NameInputField
                   type="text"
                   id="contact"
-                  value={contact}
+                  value={formData.contact}
                   onChange={(e) => handleInputChange(e, "contact")}
                 />
               </div>
@@ -270,7 +261,7 @@ const CoordinatorCompany: React.FC = () => {
             <div className="credentials-modal-body">
               <PrimaryButton
                 buttonText="Generate QR Code"
-                handleButtonClick={handleGenerateQRCode} // Fix: Use the correct function
+                handleButtonClick={handleGenerateQRCode}
                 icon={<FontAwesomeIcon icon={faPlus} />}
               />
               {qrCodeData && (

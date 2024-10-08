@@ -1,84 +1,43 @@
 .overview {
-  padding: 0 3em;
-  font-family: "Montserrat", sans-serif; // Apply Montserrat to the whole overview section
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+  margin-top: 0;
+  padding-top: 0;
 
-  .content-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 22px;
-    margin-top: 20px;
-    color: black;
-
-    .card-container {
-      flex: 1.2;
-      display: flex;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      font-size: 12px;
-      color: #767676;
-      font-weight: 20px;
-      border: #ccc 1px solid;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-
-      .h2 {
-        margin-right: 3em;
-      }
-    }
-
-    @media (min-width: 780px) {
-      flex-direction: row;
-      justify-content: space-between; /* Space between the two containers */
-    }
-
-    .chart-container {
-      flex: 2; /* Take up 2/3 of the space */
-      background-color: #fff;
-      padding: 1em 2em;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-      font-size: 12px;
-      color: #767676;
-      font-weight: 20px;
-      border: #ccc 1px solid;
-
-      @media (min-width: 780px) {
-        margin-right: 10px;
-      }
-    }
-
-    .second-chart-container {
-      flex: 1; /* Take up 1/3 of the space */
-      background-color: #fff;
-      padding: 1em 2em;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      font-size: 12px;
-      font-weight: 1px;
-      color: #160e46;
-      border: #ccc 1px solid;
-
-      @media (min-width: 780px) {
-        margin-left: 10px;
-      }
-    }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-bottom: 5px;
+    margin-right: auto;
   }
+}
 
-  .cards-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+}
 
-    @media (min-width: 780px) {
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: flex-start;
-      gap: 10px;
-    }
+.left-column,
+.right-column {
+  flex-direction: column;
+}
 
-    .card {
-      margin-bottom: 10px;
-    }
-  }
+.chart-container,
+.attendance-container,
+.card-container,
+.progress-chart-container {
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  color: black;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

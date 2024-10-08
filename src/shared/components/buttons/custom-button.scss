@@ -1,6 +1,6 @@
 .custom-button {
   padding: 0.5em 2em;
-  border-radius: 20px;
+  border-radius: 14px;
   font-size: 16px;
   border: 1px solid #d3d3d3;
   cursor: pointer;
@@ -14,7 +14,7 @@
   }
 
   &.active {
-    background-color: #9aad87;
+    background-color: #238ba2;
     color: white;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
