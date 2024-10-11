@@ -3,7 +3,13 @@
   flex-direction: column;
   margin-bottom: 16px;
   color: #201e1d;
-
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  label {
+    color: #333;
+    text-align: left;
+  }
   input {
     padding: 8px;
     border: 1px solid #ccc;

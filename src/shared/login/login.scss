@@ -8,9 +8,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* Static background color with a linear gradient */
-  background: linear-gradient(90deg, #11ffb7, #11f2e8, #17c9ef);
+  background: linear-gradient(
+    to bottom,
+    #12828b 11%,
+    #0b9ca7 38%,
+    #12b3c0 62%,
+    #18c3d1 80%
+  );
 }
 @keyframes gradientAnimation {
   0% {
@@ -33,19 +37,20 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #f0f0f0;
   border-radius: 8px;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%; // Full width
   height: auto; // Allow height to adjust based on content
 }
 
 .logo {
-  margin-bottom: 20px; /* Space between logo and input fields */
-  width: auto; /* Adjust width as needed */
-  height: 120px; /* Fixed height for consistency */
+  margin-bottom: 5px; /* Space between logo and input fields */
+  width: auto; /* Maintain aspect ratio */
+  height: 120px; /* Adjust height as needed */
+  max-width: 100%; /* Ensure responsiveness */
 }
 
 .input-container {
-  width: 100%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import InputField from "../components/fields/inputfield";
 
 // Import the logo image
-import logo from "../assets/ojt.png"; // Adjust the path based on your project structure
+import logo from "../assets/logo-sidebar.png"; // Adjust the path based on your project structure
 
 const LoginForm: React.FC = () => {
   const [loginData, setLoginData] = useState({

@@ -23,6 +23,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ placeholder, onSearch }) => {
           onChange={handleInputChange}
         />
       </div>
+      <div className="filter">
+        <FontAwesomeIcon icon={faFilter} className="filter-icon" />
+        <select>
+          <option value="">Filter</option>
+        </select>
+      </div>
     </div>
   );
 };

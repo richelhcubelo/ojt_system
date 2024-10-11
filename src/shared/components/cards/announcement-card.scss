@@ -1,16 +1,15 @@
 .reminder-card {
-  background: linear-gradient(45deg, #11ffb7, #11f2e8, #17c9ef);
+  background: linear-gradient(45deg, #11ffb7 33%, #11f2e8 66%, #17c9ef 99%);
   border-radius: 12px;
   padding: 20px;
-  max-width: 260px;
-  margin: 20px auto;
-  margin-top: 1.2em;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px; // Ensure cards have a max width to fit within the container
+  margin-top: 1em;
+  margin-left: 1em;
   font-family: "Montserrat", sans-serif;
-  margin-left: 3.8em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   .card-title {
-    font-size: 1.4em;
+    font-size: 1.1em;
     font-weight: bold;
     color: #444;
     margin-bottom: 30px;
@@ -27,22 +26,43 @@
 
   .card-footer {
     font-size: 0.8em;
-    color: #9989b7;
+    color: #630a89;
     text-align: right;
     font-weight: 600;
     margin-top: 3em;
   }
 }
-
+/*.announcement-cards-wrapper {
+  border-radius: 10px;
+  width: 70vw; // Set width to 80%
+  height: 60vh; // Set a fixed height for the wrapper
+  margin: 0 auto; // Center the container
+  padding: 0.5em; // Optional padding for aesthetics
+  background-color: #d6c4c4; // Optional background color for visibility
+  overflow-x: auto; // Enable horizontal scrolling
+}
 .announcement-cards-container {
-  display: flex;
-  flex-wrap: wrap;
+  padding-left: 4em;
+  padding-right: 2em;
+  display: flex; // Use Flexbox for horizontal layout
+  flex-wrap: nowrap; // Prevent wrapping to keep cards in a single row
+  gap: 20px; // Add space between the cards
+  position: fixed;
+  padding: 0.5em; // Optional padding for the container
+}*/
 
-  margin-right: 30em;
-  gap: 0px; /* Adjust this value to set the space between cards */
+.announcement-cards-wrapper {
+  width: 88%; // Full width of the container
+  height: 46vh; // Set a fixed height for the wrapper
+  margin: 0 auto; // Center the container
+  padding: 0.5em; // Optional padding for aesthetics
+  background-color: #ffffff; // Optional background color for visibility
+  overflow-x: auto; // Enable horizontal scrolling
+  border-radius: 10px;
 }
 
-.announcement-cards-container > * {
-  flex: 1 1 calc(50% - 5px); /* This will make two cards per row on larger screens */
-  min-width: 250px; /* Adjust this value as needed */
+.announcement-cards-container {
+  display: flex; // Use Flexbox for horizontal layout
+  flex-wrap: nowrap; // Prevent wrapping to keep cards in a single row
+  gap: 20px; // Add space between the cards
 }
