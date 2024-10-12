@@ -4,7 +4,7 @@
   align-items: center;
 
   .search-wrapper {
-    padding-right: 20em;
+    padding-right: 25em;
     width: 100%;
     max-width: 300px; // Adjust this value as needed
     margin: 0 auto; // Center the search bar without extra horizontal space
@@ -33,6 +33,12 @@
       p {
         margin: 5px 0; // Reduced paragraph margins for less vertical space
         text-align: left; // Ensures text within paragraphs is left-aligned
+      }
+
+      // Add styles for print button container
+      .print-button-container {
+        margin-left: 4em;
+        margin-top: 5em; // Space above the print button
       }
     }
   }

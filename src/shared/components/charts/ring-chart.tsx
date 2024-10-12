@@ -16,14 +16,15 @@ const ProgressRingCard: React.FC<ProgressRingCardProps> = ({ percentage }) => {
 
   return (
     <div className="progress-ring-card">
-      <ResponsiveContainer width="100%" height={200}>
+      <h2>Overall Attendance</h2>
+      <ResponsiveContainer width="100%" height={130}>
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={35}
+            outerRadius={55}
             startAngle={90}
             endAngle={-270}
             dataKey="value"

@@ -8,10 +8,7 @@ interface CardProps {
   width?: string; // Optional width prop to customize width
   height?: string; // Optional height prop to customize height
   color?: string;
-  children?: React.ReactNode;
-  content: string; // Content to display within the card
-  datePosted: string; // Date to display
-  title: string;
+  className?: string; // Add className prop
 }
 
 const Card: React.FC<CardProps> = ({
@@ -21,27 +18,18 @@ const Card: React.FC<CardProps> = ({
   width,
   height,
   color = "",
-  children,
-  datePosted,
-  content,
-  title,
+  className = "", // Default to empty string
 }) => {
   return (
-    <div className="card" style={{ width, height, backgroundColor: color }}>
+    <div
+      className={`card ${className}`}
+      style={{ width, height, backgroundColor: color }}
+    >
       <div className="label">
         {icon && <span className="icon">{icon}</span>}
         {label}
       </div>
       <div className="value">{value}</div>
-      {value && <p>{value}</p>}
-      <div className="card-title">{title}</div>
-      {/* Render the datePosted */}
-      <div className="date-posted">{datePosted}</div>
-
-      {/* Render the content */}
-      <div className="content">{content}</div>
-
-      {children}
     </div>
   );
 };

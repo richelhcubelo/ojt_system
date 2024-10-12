@@ -1,21 +1,25 @@
-.progress-ring-card,
-.line-chart-card {
-  background-color: white;
+.progress-ring-card {
+  background-color: rgb(138, 160, 198);
   border-radius: 8px;
-  padding: 20px;
+  padding-left: 2em;
+  padding-right: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .progress-ring-card {
   position: relative;
+  width: 20em;
 
   .percentage-text {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 58%;
+    left: 53%;
     transform: translate(-50%, -50%);
     font-size: 24px;
     font-weight: bold;
-    color: #20b2aa;
+    color: #afcbc9;
   }
 }
