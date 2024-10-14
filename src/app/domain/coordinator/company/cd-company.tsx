@@ -44,7 +44,7 @@ const CoordinatorCompany: React.FC = () => {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
     field: string
   ) => {
     setFormData((prev) => ({ ...prev, [field]: e.target.value }));
@@ -216,7 +216,7 @@ const CoordinatorCompany: React.FC = () => {
 
             <div className="modal-bodyright">
               <h4>Mentor Info</h4>
-              <div className="left-components">
+              <div className="leftcomponents">
                 <label htmlFor="mentorName">Mentor Name</label>
                 <NameInputField
                   type="text"

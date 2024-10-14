@@ -28,6 +28,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
 }
 
+.modal-content.smallmed {
+  max-width: 100%;
+  width: 400px;
+  height: 350px;
+  /* Adjust dimensions for medium modal */
+}
 .modal-content.large {
   max-width: 100%;
   width: 750px;

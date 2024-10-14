@@ -5,6 +5,7 @@ import { FaBuilding, FaGraduationCap } from "react-icons/fa";
 import NewCoordinatorCard from "../../../../shared/components/new-coordinator/new-coordinator";
 import Card from "../../../../shared/components/cards/card";
 import BarChartCard from "../../../../shared/components/charts/bar-chart";
+import welcomeGif from "../../../../shared/assets/welcome.gif";
 
 const CoordinatorDashboard: React.FC = () => {
   const [totalCompanies, setTotalCompanies] = useState<number | null>(null);
@@ -59,21 +60,34 @@ const CoordinatorDashboard: React.FC = () => {
 
   return (
     <div className="dashb">
-      <div className="cards-div">
-        <Card
-          label="Total Companies"
-          value={totalCompanies !== null ? totalCompanies.toString() : ""}
-          icon={<FaBuilding />}
-          width="240px"
-          height="110px"
-        />
-        <Card
-          label="Total Students"
-          value={totalStudents !== null ? totalStudents.toString() : ""}
-          icon={<FaGraduationCap />}
-          width="240px"
-          height="110px"
-        />
+      <div className="cards-wrapper">
+        <div className="left-card">
+          <h2>Welcome back, Richel Cubelo!</h2>
+          <img
+            src={welcomeGif}
+            alt="Person using a laptop"
+            className="gif-image"
+            width={250}
+          />
+        </div>
+        <div className="right-cards">
+          <Card
+            label="Total Students"
+            value={totalStudents !== null ? totalStudents.toString() : ""}
+            icon={<FaGraduationCap />}
+            width="80%"
+            height="40%"
+            className="total-students"
+          />
+          <Card
+            label="Total Companies"
+            value={totalCompanies !== null ? totalCompanies.toString() : ""}
+            icon={<FaBuilding />}
+            width="80%"
+            height="40%"
+            className="total-companies"
+          />
+        </div>
       </div>
 
       <div className="content-wrapper">
@@ -93,8 +107,7 @@ const CoordinatorDashboard: React.FC = () => {
 
         {/* Keep BarChartCard within a styled container */}
         <div className="chart-container">
-          {" "}
-          {/* Retain this container for styling */}
+          <h2>Student Company Distribution</h2>
           <BarChartCard />
         </div>
       </div>

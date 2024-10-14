@@ -7,7 +7,7 @@ import { faPlus, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Modal from "../../../../shared/components/modals/modal";
 import NameInputField from "../../../../shared/components/fields/unif";
-
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 const handleEdit = (id: number) => {
   // Implement your edit logic here
 };
@@ -38,13 +38,16 @@ const Program: React.FC = () => {
   const [program, setProgram] = useState("");
   const [description, setDescription] = useState("");
   const [requiredDuration, setRequiredDuration] = useState(""); // New state for required duration
-
+  const [isErrorModalOpen, setIsErrorModalOpen] = useState<boolean>(false);
+  const [currentModal, setCurrentModal] = useState<string>("details"); // Track which modal step is active
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] =
+    useState<boolean>(false);
   const handleAddButtonClick = () => {
     setShowModal(true);
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
     field: string
   ) => {
     if (field === "program") {
@@ -65,14 +68,31 @@ const Program: React.FC = () => {
   };
 
   const handleModalSave = () => {
+    if (!program || !description || !requiredDuration) {
+      setIsErrorModalOpen(true);
+    } else {
+      // Show the confirmation modal if all fields are filled
+      setCurrentModal("confirmation");
+      setShowModal(false); // Close the add modal
+    }
+  };
+  const confirmAddProgram = () => {
     const newProgram = {
       id: programs.length + 1,
       program,
       description,
-      requiredDuration, // Use the new state value
+      requiredDuration,
     };
+
+    // Add the new program to the state
     setPrograms([...programs, newProgram]);
-    handleModalCancel();
+
+    // Close the confirmation modal
+    setCurrentModal("details"); // Reset to details or whatever your default modal is
+    setIsConfirmationModalOpen(false); // Close confirmation modal
+
+    // Reset fields
+    handleModalCancel(); // This will reset fields and close the add modal
   };
 
   // Table columns
@@ -166,6 +186,53 @@ const Program: React.FC = () => {
               value={requiredDuration}
               onChange={(e) => handleInputChange(e, "requiredDuration")}
             />
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        show={currentModal === "confirmation"}
+        title="Confirmation"
+        message=""
+        onCancel={handleModalCancel}
+        onConfirm={confirmAddProgram}
+        size="small"
+        cancelButtonText="Cancel"
+        confirmButtonText="Confirm"
+      >
+        <div className="modal-custom-content">
+          <div className="modal-custom-header">
+            <div className="header-left">
+              <h2 className="main-header">Add New Program</h2>
+              <h3 className="sub-header">
+                Are you sure you want to add this program?
+              </h3>
+            </div>
+          </div>
+        </div>
+      </Modal>
+      <Modal
+        show={isErrorModalOpen}
+        title="" // Remove the title
+        message="Please fill out all required fields."
+        onCancel={() => setIsErrorModalOpen(false)}
+        size="small"
+        singleButton={true}
+      >
+        <div className="modal-custom-content">
+          <div className="modal-custom-header">
+            <div className="header-left">
+              <h2 className="main-header">
+                <FontAwesomeIcon
+                  icon={faExclamationTriangle}
+                  className="error-icon"
+                />
+                Error
+              </h2>
+              <h3 className="sub-header">
+                Ensure all required fields are filled out.
+              </h3>
+            </div>
           </div>
         </div>
       </Modal>

@@ -13,20 +13,20 @@ import {
 
 // Sample data for the bar chart
 const data = [
-  { program: "BS Computer Science", students: 10 },
-  { program: "BS Information Technology", students: 8 },
-  { program: "BS Fisheries", students: 5 },
+  { program: "Marvs Digital", students: 10 },
+  { program: "Skyride", students: 8 },
+  { program: "BISU", students: 5 },
 ];
 
 const BarChartCard: React.FC = () => {
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={260}>
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="program" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="students" fill="#8884d8" />
+        <Bar dataKey="students" fill="rgb(184, 84, 84)" barSize={90} />
       </BarChart>
     </ResponsiveContainer>
   );

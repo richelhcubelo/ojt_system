@@ -14,6 +14,7 @@ interface NameInputFieldProps {
   onTogglePassword?: () => void;
   label?: string;
   rows?: number;
+  className?: string;
 }
 
 const NameInputField: React.FC<NameInputFieldProps> = ({
@@ -26,6 +27,7 @@ const NameInputField: React.FC<NameInputFieldProps> = ({
   onTogglePassword,
   label,
   rows = 3,
+  className = "",
 }) => {
   return (
     <div className="name-input-field">
@@ -49,6 +51,7 @@ const NameInputField: React.FC<NameInputFieldProps> = ({
           value={value}
           onChange={onChange}
           readOnly={readOnly}
+          className="contactnum"
         />
       )}
       {type === "password" && onTogglePassword && (
